@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-full grid place-items-center">
+    <div id="app">
+        <section v-show="inProgressAssignments.length">
+            <h2 class="font-bold mb-2">In progress assignments</h2>
+            <ul>
+                <li v-for="assignment in inProgressAssignments" :key="assignment.id">
+                    <label for="">
+                        {{assignment.name}}
+                        <input type="checkbox" name="" id="" v-model="assignment.complete">
+                    </label>
+                </li>
+            </ul>
+        </section>
+        <section class="mt-5" v-if="completedAssignments.length">
+            <h2 class="font-bold mb-2">Completed assignments</h2>
+            <ul>
+                <li v-for="assignment in completedAssignments" :key="assignment.id">
+                    <label for="">
+                        {{assignment.name}}
+                        <input type="checkbox" name="" id="" v-model="assignment.complete">
+                    </label>
+                </li>
+            </ul>
+        </section>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
