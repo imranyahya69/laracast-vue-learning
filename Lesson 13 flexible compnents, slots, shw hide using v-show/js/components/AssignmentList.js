@@ -4,7 +4,7 @@ export default{
     components:{Assignment,AssignmentTags},
     template:
     `
-    <section v-show="filteredAssignments.length" class="w-70 bg-gray-700 p-4 border border-gray-600 rounded-lg">
+    <section v-show="filteredAssignments.length" class="w-60">
 <div class="flex justify-between">
 <h2 class="font-bold mb-2">
 {{title}}

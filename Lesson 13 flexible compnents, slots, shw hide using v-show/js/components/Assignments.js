@@ -8,7 +8,7 @@ export default {
         `
         <section class="flex gap-8">
         <AssignmentList :assignments="filters.inProgress" title="In progress assignments">
-        <AssignmentCreate @add="add"></AssignmentCreate>
+        <A  ssignmentCreate @add="add"></AssignmentCreate>
         </AssignmentList>
 
         <div v-show="showCompleted">
