@@ -11,9 +11,9 @@ export default{
 </h2>
 
 <assignment-tags
-v-model:currentTag="currentTag"
+@change="currentTag = $event"
 :initialTags="assignments.map(a => a.tag)"
-/>
+:currentTag="currentTag"/>
 
 <ul class="border border-gray-600 divide-y divide-gray-600">
 <Assignment

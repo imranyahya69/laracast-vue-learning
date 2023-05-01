@@ -1,7 +1,6 @@
 import Assignment from "./Assignment.js"
-import AssignmentTags from "./AssignmentTags.js"
 export default{
-    components:{Assignment,AssignmentTags},
+    components:{Assignment},
     template:
     `
     <section v-show="filteredAssignments.length">
@@ -9,12 +8,15 @@ export default{
 {{title}}
 <span>({{filteredAssignments.length}})</span>
 </h2>
-
-<assignment-tags
-v-model:currentTag="currentTag"
-:initialTags="assignments.map(a => a.tag)"
-/>
-
+<div class="flex gap-3">
+<button
+@click="currentTag=tag"
+v-for="tag in tags"
+class="border rounded px-1 py-px text-xs mb-3"
+:class="{
+    'border-blue-500 text-blue-500':currentTag==tag
+}">{{tag}}</button>
+</div>
 <ul class="border border-gray-600 divide-y divide-gray-600">
 <Assignment
 v-for="assignment in filteredAssignments"
@@ -32,6 +34,7 @@ v-for="assignment in filteredAssignments"
         assignments:Array,
         title:String
     },
+
     computed:{
         filteredAssignments(){
             if(this.currentTag == 'all'){
@@ -39,7 +42,8 @@ v-for="assignment in filteredAssignments"
             }
             return this.assignments.filter(a => a.tag === this.currentTag);
         },
+        tags(){
+            return ['all',...new Set (this.assignments.map(a => a.tag))];
+        }
     }
 }
-
-//$event is the parameter sent from child via emit.
