@@ -19,22 +19,29 @@ To run the application, use the following command:
 
 ## Setting up JSON Server
 To use JSON Server, run the following command:
+
 ```npm install json-server --save-dev```
 
 
 ## To start the server, run the following command:
+
 ```npx json-server db.json```
 
 ## To specify a different port, use the -p option:
+
 ```npx json-server db.json -p 3001```
 
 ## Starting the Application
 To start the application, run the following command:
+
 ```npm run start```
 
 Or
 
+Run these cmmands in parallel using two terminals:
+
 ```npx serve```
+
 ```npx json-server db.json -p 3001```
 
 This command will start the development server and open your browser to http://localhost:3000.
