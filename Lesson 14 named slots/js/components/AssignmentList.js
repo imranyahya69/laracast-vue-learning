@@ -1,10 +1,12 @@
 import Assignment from "./Assignment.js"
 import AssignmentTags from "./AssignmentTags.js"
+import Panel from "./Panel.js";
+
 export default{
-    components:{Assignment,AssignmentTags},
+    components:{Assignment,AssignmentTags,Panel},
     template:
     `
-    <section v-show="filteredAssignments.length" class="w-70 bg-gray-700 p-4 border border-gray-600 rounded-lg">
+    <Panel v-show="filteredAssignments.length" class="w-70">
 <div class="flex justify-between">
 <h2 class="font-bold mb-2">
 {{title}}
@@ -27,7 +29,10 @@ v-for="assignment in filteredAssignments"
 </Assignment>
 </ul>
 <slot></slot>
-</section>
+<template #footer>
+this is the footer
+</template>
+</Panel>
     `,data() {
         return {
             currentTag: 'all'
@@ -51,4 +56,6 @@ v-for="assignment in filteredAssignments"
     }
 }
 
-//$event is the parameter sent from child via emit.
+// Note
+// $event is the parameter sent from child via emit.
+// v-slot:footer == #footer
